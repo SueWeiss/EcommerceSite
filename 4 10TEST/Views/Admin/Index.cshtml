@@ -1,0 +1,43 @@
+﻿@using Library.Data;
+@model IEnumerable<Categories>
+<div class="container">
+    <div class="Add-Category">
+        <form method="post" action="/admin/addCategory" >
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <input type="text" placeholder="Name" name="Name" class="form-control" />
+                <button class="btn btn-success">Add</button>               
+            </div>
+            </form>
+
+    </div>
+    
+    
+    
+    <div class="Add-Product">
+        <h3>Add New Product:</h3>
+        <form method="post" action="/admin/addProduct" enctype="multipart/form-data">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <input type="text" placeholder="Product Name" name="Name" class="form-control" />
+                <input type="text" placeholder="Description" name="Description" class="form-control" />
+                <input type="text" placeholder="Price" name="Price" class="form-control" />
+            </div>
+            <br />
+            <br />
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <select name="CategoryId" class="form-control">
+                    <option value="0">--Select a Category--</option>
+                    @foreach (Categories c in Model)
+                    {
+                        <option value="@c.Id">@c.Name</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <br />
+            <br />
+            <h4>Product Image:   </h4>
+            <input type="file" name="ImageName" />
+            <button class="btn btn-danger">Add Product</button>
+        </form>
+</div>
+</div>

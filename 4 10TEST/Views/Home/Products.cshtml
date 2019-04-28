@@ -1,0 +1,75 @@
+﻿@using Library.Data;
+@model Products
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead"></p>
+            <a href="/home/index"><button class="btn btn-danger  glyphicon-arrow-left"> Go Back</button></a>
+
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="thumbnail">                
+                <img  class="img-responsive"src="/ProductImages/@Model.ImageName" style="width: 400px;" />
+                <div class="caption-full">
+                    <h4 class="pull-right">@Model.Price.ToString("C")</h4>
+                    <h4>
+                        <a href="#">@Model.Name</a>
+                    </h4>
+                    <p>@Model.Description</p>
+                </div>
+
+            </div>
+            <div class="addingToCart">
+                <select id="amount" class="form-control">
+                    <option value="0">--Quantity--</option>
+                    @for (int i = 1; i < 10; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+
+            <button class="btn btn-danger addCart" id="adding-@Model.ProductId" value="@Model.ProductId">Add To Cart</button>
+
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+<!-- Cart Modal -->
+   <!--<form method="post" action="/home/addsimcha">-->
+    <div id="cart-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Added to Cart</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="/ProductImages/@Model.ImageName" style="width: 100px;" />
+                </div>
+                <div class="modal-footer">
+                  <a href="/home/mycart"  ><button id="save-button" class="btn btn-primary">View Cart</button></a>
+                <button id="cancel-button" type="button" class="btn btn-secondary">Keep Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    @section scripts{
+        <script src="~/JavaScript.js"></script>
+    }
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
