@@ -1,7 +1,6 @@
 ﻿@using _4_10TEST.Models;
 @using Library.Data;
 @model IndexVeiwModels
-
 <!-- Page Content -->
 <div class="container">
 
@@ -12,8 +11,8 @@
             <div class="list-group">
                 @foreach (Categories c in Model.AllCategories)
                 {
-                   <button class=" btn list-group-item  CategoryName"  data-id="@c.Id">@c.Name</button>
-                    <a href="/home/index?id=@c.Id" class="list-group-item">@c.Name</a>
+                    <button class=" btn list-group-item  CategoryName" data-id="@c.Id">@c.Name</button>
+                    <!--    <a href="/home/index?id=@c.Id" class="list-group-item">@c.Name</a>-->
                 }
 
             </div>
@@ -70,9 +69,9 @@
                     </div>
                 }
             </div>
-                    </div>
-            </div>
+        </div>
     </div>
+</div>
 <!-- /.container -->
 
 <div class="container">
@@ -87,5 +86,9 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+
+@section scripts{
+    <script src="~/JavaScript.js"></script>
+}
 
 

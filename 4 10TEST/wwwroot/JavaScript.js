@@ -1,5 +1,4 @@
 ﻿$(() => {
-    //alert('foo')
     $('.addCart').on('click', function () {
         const amount = $('#amount').val()
         const productId = $(".addCart").val()
@@ -18,19 +17,19 @@
 
 
     $('.CategoryName').on('click', function () {
+        $('.products').remove();
         const catId = $(this).data('id');
-        alert('foo')
         $.post("/home/JasonProducts", { Id: catId }, function (products) {
-            products.foreach(products =>
-                $('.myRow').append(`  <div class="col-sm-4 col-lg-4 col-md-4">
+            products.forEach(product =>
+                $('.myRow').append(`  <div class="col-sm-4 col-lg-4 col-md-4 products">
                     <div class="thumbnail">
-                        <img src="/ProductImages/@${products.ImageName}" style="width: 800px;" />
+                        <img src="/ProductImages/${product.imageName}" style="width: 800px;" />
                         <div class="caption">
-                            <h4 class="pull-right">@${products.Price.ToString("C")}</h4>
+                            <h4 class="pull-right">${product.price}</h4>
                             <h4>
-                                <a href="/Home/products?id=@${products.ProductId}">@${products.Name}</a>
+                                <a href="/Home/products?id=${product.productId}">${product.name}</a>
                             </h4>
-                            <p>@${products.Description}</p>
+                            <p>${product.description}</p>
                         </div>
                     </div>
                 </div>`))
