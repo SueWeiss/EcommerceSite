@@ -22,7 +22,7 @@
         alert('foo')
         $.post("/home/JasonProducts", { Id: catId }, function (products) {
             products.foreach(products =>
-                $('.row').append(`  <div class="col-sm-4 col-lg-4 col-md-4">
+                $('.myRow').append(`  <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
                         <img src="/ProductImages/@${products.ImageName}" style="width: 800px;" />
                         <div class="caption">

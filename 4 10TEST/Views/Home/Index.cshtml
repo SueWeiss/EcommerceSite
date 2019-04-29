@@ -12,7 +12,7 @@
             <div class="list-group">
                 @foreach (Categories c in Model.AllCategories)
                 {
-                    <!-- <button class=" btn list-group-item  CategoryName"  data-id="@c.Id">@c.Name</button>-->
+                   <button class=" btn list-group-item  CategoryName"  data-id="@c.Id">@c.Name</button>
                     <a href="/home/index?id=@c.Id" class="list-group-item">@c.Name</a>
                 }
 
@@ -32,13 +32,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="/ProductImages/Shopping.PNG" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="/ProductImages/shoppping.PNG" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                <img class="slide-image" src="/ProductImages/savebig.PNG" alt="">
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -52,7 +52,7 @@
 
             </div>
 
-            <div class="row">
+            <div class="myRow">
                 @foreach (Products p in Model.Products)
                 {
                     <div class="col-sm-4 col-lg-4 col-md-4">
